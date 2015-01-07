@@ -259,11 +259,11 @@
 		this.hightlightItem();
 	};
 
-	$.fn[pluginName] = function (options) {
-		return this.each(function () {
-			if(!$.data(this, 'plugin_' + pluginName)) {
-				$.data(this, 'plugin_' + pluginName, new Plugin(this, options));
-			}
-		});
-	};
+	$.fn.extend( {
+		sew: function( options ) {
+		    return this.each( function() {
+		    	new Plugin(this, options);
+		    } );
+		}
+	} );
 }(jQuery, window));
